@@ -153,7 +153,7 @@ header {
   font-size: .9rem;
   cursor: pointer;
 }
-.form-control input {
+input[type="search"] {
   width: 100%;
   background: var(--elements);
   outline: none;
@@ -163,6 +163,20 @@ header {
   color: var(--text);
   font-family: inherit;
   letter-spacing: 1px;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 50em;
+  background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
+  background-size: contain;
+  opacity: 0;
+  pointer-events: none;
+}
+input[type="search"]:focus::-webkit-search-cancel-button {
+  opacity: .3;
+  pointer-events: all;
 }
 .form-control input::placeholder {
   color: var(--text);
@@ -189,7 +203,7 @@ header {
   padding: 20px;
   margin-top: -10px;
   border-radius: 0 0 5px 5px;
-  flex: 0 0 55%;
+  height: 55%;
 }
 .country-info h4 {
   padding-bottom:  5px;
@@ -200,7 +214,7 @@ header {
 .flag-img {
   display: block;
   border-radius: 5px 5px 0 0;
-  flex: 0 0 45%;
+  height: 45%;
   width: 100%;
 }
 .btn-div {
@@ -235,10 +249,9 @@ header {
 /* Layout Styles */
 .det-page-wrap {
   width: 100%;
-  padding: 2rem 0;
+  padding-top: 3rem;
 }
 .icon-wrap {
-  width: 90%;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -248,7 +261,6 @@ header {
   margin: 0 auto;
 }
 .det-country {
-  width: 90%;
   max-width: 1100px;
   margin: 2rem auto;
 }
@@ -263,11 +275,13 @@ header {
 .det-country-details span {
   font-weight: 300;
   font-size: .8rem;
-  margin-left: 2px;
+  margin-top: 5px;
 }
 .det-country-details h3 {
+  display: inline-block;
   font-weight: 600;
   font-size: 1rem;
+  margin-right: 10px;
 }
 .border-countries {
   display: inline-block;
@@ -331,7 +345,6 @@ header {
 @media (min-width: 950px) {
   .icon-wrap {
     width: 100%;
-    padding: 1rem;
   }
   .det-country div {
     padding: 0;
@@ -342,7 +355,6 @@ header {
     display: flex;
     align-items: center;
     gap: 50px;
-    padding: 1rem;
   }
   .det-flag {
     flex-basis: 50%;

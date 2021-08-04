@@ -1,25 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const url = 'https://restcountries.eu/rest/v2/all';
+import Search from './Search';
+
+const countriesUrl = 'https://restcountries.eu/rest/v2/all';
 
 const Countries = () => {
-  const [countries, setCountries] = useState([]);
   
-  const fetchData = async () => {
-    const response = await fetch(url);
-    const countries = await response.json();
-    setCountries(countries);
+  const [countries, setCountries] = useState([]);
+   const setData = (c) => {
+    setCountries(c);
   }
 
   useEffect(() => {
-    fetchData()
+      const fetchData = async (url) => {
+      const response = await fetch(url);
+      const countries = await response.json();
+      setData(countries);
+    }
+    fetchData(countriesUrl)
   }, []);
 
-  
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 
   return (
+    
     <>
+    <Search dataReset={(arr) => setData(arr)}/>
     <section className="flag-container">
     {countries.map((country) => {
       const {name, region, population, capital, flag, numericCode} = country;
@@ -30,8 +39,8 @@ const Countries = () => {
             <div className="card">
               <img className="flag-img" src={flag} alt={name} />
               <div className="country-info">
-                <h3>{name}</h3>
-                <h4>Population: <span>{population}</span></h4>
+                <h3 className="country-name">{name}</h3>
+                <h4>Population: <span>{numberWithCommas(population)}</span></h4>
                 <h4>Region: <span>{region}</span></h4>
                 <h4>Capital: <span>{capital}</span></h4>
               </div>
@@ -59,4 +68,3 @@ export default Countries
 //       setCountries(newCountries);
 //     }
 // }
-// <button className="btn" onClick={() => removeCountry(numericCode)}>Remove Country</button>

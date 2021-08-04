@@ -11,9 +11,12 @@ const CountryPage = () => {
       const country = await response.json();
       setCountry(country);
     };
-
     fetchData();
   }, [name]);
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 
   return (
     <>
@@ -35,7 +38,7 @@ const CountryPage = () => {
                 <div className="details-1">
                   <h2>{name}</h2>
                   <h5>Native Name: <span>{nativeName}</span></h5>
-                  <h5>Population: <span>{population}</span></h5>
+                  <h5>Population: <span>{numberWithCommas(population)}</span></h5>
                   <h5>Region: <span>{region}</span></h5>
                   <h5>Sub-region: <span>{subregion}</span></h5>
                   <h5>Top Level Domain: <span>{topLevelDomain}</span></h5>
@@ -46,13 +49,14 @@ const CountryPage = () => {
                   <h5>Capital <span>{capital}</span></h5>
                 </div>
                 <div className="details-3">
-                  <h3>Border Countries: <span className="border-countries"><ul>{borders.map((border) => {
+                  <h3>Border Countries: </h3>
+                  <span className="border-countries"><ul>{borders.map((border) => {
                     return (
                         <li>{border}</li>
                     )
                   })}
                   </ul>
-                  </span></h3>
+                  </span>
                 </div>
                 
 
