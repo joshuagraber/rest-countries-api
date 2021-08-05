@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 const CountryPage = () => {
   const [country, setCountry] = useState([]);
-  const {name} = useParams()
+  const {name} = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,7 +14,7 @@ const CountryPage = () => {
     fetchData();
   }, [name]);
 
-  function numberWithCommas(x) {
+  function numberWithCommas(x) {  //Function duplicated in Countries page, move to Context on refactor
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
@@ -26,8 +26,8 @@ const CountryPage = () => {
       </div>
       <section className="det-country wrap">
       
-        {country.map((c) => {
-          const {numericCode, flag, name, nativeName, population, region, subregion, borders, capital, topLevelDomain, currencies, languages} = c;
+        {country.map((ctry) => {
+          const {numericCode, flag, name, nativeName, population, region, subregion, borders, capital, topLevelDomain, currencies, languages} = ctry;
           
           return (
             <article className="det-country" key={numericCode}>

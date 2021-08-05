@@ -21,14 +21,16 @@ const Countries = () => {
     fetchData(countriesUrl)
   }, []);
 
-  function numberWithCommas(x) {
+  function numberWithCommas(x) { //Function duplicated in CountryPage, move to Context on refactor
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
   return (
     
     <>
-    <Search dataReset={(arr) => setData(arr)}/>
+    <Search 
+      dataReset={(arr) => setData(arr)}
+      />
     <section className="flag-container">
     {countries.map((country) => {
       const {name, region, population, capital, flag, numericCode} = country;
@@ -58,13 +60,3 @@ const Countries = () => {
 }
 
 export default Countries
-
-
-
-// const removeCountry = (numericCode) => {
-//   const newCountries = countries.filter((country) =>
-//     country.numericCode !== numericCode)
-//     if (newCountries !== countries) {
-//       setCountries(newCountries);
-//     }
-// }

@@ -43,9 +43,10 @@ Users should be able to:
 ### Built with
 
 - [React](https://reactjs.org/) - JS library
-- REST API integration
+- REST API integration and data handling
 - Flexbox
 - CSS Grid
+- CSS Variables updated via JS (for the dark/light mode toggle)
 - Mobile-first workflow
 
 
@@ -57,7 +58,7 @@ I learned a lot about React.js through this project, including handling API/JSON
 
 ### Continued development
 
-I feel that the search and sorting functions could be more smoothly integrated using React Router API. Once I feel more confident with Router (and / or Hooks), I plan to refactor using those techniques.
+I feel that the search and sorting functions (as well as the Regex for adding commas to population numbers) could be more smoothly integrated using React Context API. Once I feel more confident with Context and Hooks, I plan to refactor.
 
 
 ### Useful resources
@@ -69,7 +70,7 @@ I feel that the search and sorting functions could be more smoothly integrated u
 
 - Website - [Joshua Graber](https://www.joshuagraber.com)
 - Frontend Mentor - [@joshuagraber](https://www.frontendmentor.io/profile/joshuagraber)
-- Github - [@joshuagraber](https://www.twitter.com/yourusername)
+- Github - [@joshuagraber](https://www.github.com/joshuagraber)
 
 ## Acknowledgments
 

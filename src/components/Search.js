@@ -2,12 +2,11 @@ import React from 'react';
 
 const url = 'https://restcountries.eu/rest/v2/all';
 
-const Search = (props) => {
-  const {dataReset} = props;
+const Search = ({dataReset}) => {
+  // const {dataReset} = props;
   
   
     //Displays sorting menu 
-    
     const displaySort = () => {
       const options = document.querySelector('.options');
       options.classList.toggle('show');
@@ -43,20 +42,6 @@ const Search = (props) => {
       const newCountries = await response.json();
       filterCountries(e, newCountries);
     }
-
-    
-    window.addEventListener('DOMContentLoaded', () => { //Event listeners added on elements after page load
-      const searchBar = document.getElementById('search');
-      const dropdowns = document.querySelectorAll('.dropdown-selector');
-
-      searchBar.addEventListener('input', (e) => {
-        getNewCountries(e);
-      });
-
-      dropdowns.forEach(dropdown => dropdown.addEventListener('click', (e) => {
-        getNewCountries(e);
-      }));
-    })
   
 
   return (
@@ -64,15 +49,15 @@ const Search = (props) => {
     <section className="search-bar">
       <div className="search-wrap">
         <form action="#" className="form-control input">
-          <input type="search" name="search" id="search" placeholder="Search for a country" />
+          <input type="search" name="search" id="search" placeholder="Search for a country" onInput={(e) => getNewCountries(e)}/>
         </form>
 
         <div className="select-menu" onClick={displaySort}>
-        <div className="options">
+        <div className="options" onClick={(e) => getNewCountries(e)}>
           <span className="dropdown-selector" id="africa">Africa</span>
           <span className="dropdown-selector" id="americas">Americas</span>
           <span className="dropdown-selector" id="asia">Asia</span>
-          <span className="dropdown-selector" id="aurope">Europe</span>
+          <span className="dropdown-selector" id="europe">Europe</span>
           <span className="dropdown-selector" id="oceania">Oceania</span>
         </div>
           <select name="select" id="select" className="select input">
