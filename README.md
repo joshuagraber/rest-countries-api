@@ -27,7 +27,7 @@ Users should be able to:
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode *(optional)*
+- Toggle the color scheme between light and dark mode
 
 ### Screenshot
 
@@ -58,7 +58,7 @@ I learned a lot about React.js through this project, including handling API/JSON
 
 ### Continued development
 
-I feel that the search and sorting functions (as well as the Regex for adding commas to population numbers) could be more smoothly integrated using React Context API. Once I feel more confident with Context and Hooks, I plan to refactor.
+I feel that the search and sorting functions (as well as the Regex for adding commas to population numbers) could be more smoothly integrated. As it is now, there are a lot of re-renders. Maybe that's unavoidable. But it all works very well!
 
 
 ### Useful resources

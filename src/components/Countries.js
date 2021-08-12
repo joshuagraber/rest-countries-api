@@ -3,25 +3,31 @@ import { Link } from 'react-router-dom';
 
 import Search from './Search';
 
-const countriesUrl = 'https://restcountries.eu/rest/v2/all';
 
 const Countries = () => {
-  
+  const countriesUrl = 'https://restcountries.eu/rest/v2/all';
   const [countries, setCountries] = useState([]);
-   const setData = (c) => {
+  
+
+  const setData = (c) => {
     setCountries(c);
   }
 
   useEffect(() => {
+    setData(countries);
+  }, [countries]);
+
+  useEffect(() => {
       const fetchData = async (url) => {
       const response = await fetch(url);
-      const countries = await response.json();
-      setData(countries);
+      const countriesResponse = await response.json();
+      setData(countriesResponse);
     }
     fetchData(countriesUrl)
   }, []);
 
-  function numberWithCommas(x) { //Function duplicated in CountryPage, move to Context on refactor
+
+  function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
@@ -29,14 +35,14 @@ const Countries = () => {
     
     <>
     <Search 
-      dataReset={(arr) => setData(arr)}
+      setCountries={setCountries}
+      countriesUrl={countriesUrl}
       />
     <section className="flag-container">
     {countries.map((country) => {
       const {name, region, population, capital, flag, numericCode} = country;
 
-      return (
-        
+      return (        
           <article className="card-wrap" key={numericCode}>
             <div className="card">
               <img className="flag-img" src={flag} alt={name} />

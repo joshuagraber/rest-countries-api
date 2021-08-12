@@ -14,7 +14,7 @@ const CountryPage = () => {
     fetchData();
   }, [name]);
 
-  function numberWithCommas(x) {  //Function duplicated in Countries page, move to Context on refactor
+  function numberWithCommas(x) {  //Function duplicated in Countries page, move to Context on refactor? Or is one duplication not enough for that extra work?
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
