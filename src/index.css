@@ -1,10 +1,18 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 /* Global Styles and Variables*/
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 :root {
@@ -31,7 +39,8 @@ body {
 img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .btn {
   background: var(--background);
@@ -43,6 +52,8 @@ img {
   font-family: inherit;
   font-size: .8rem;
   cursor: pointer;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
   transition: .2s;
 }
 .btn:hover {
@@ -50,7 +61,7 @@ img {
   color: var(--background);
 }
 .btn.light-mode {
-  border: 2px solid var(--light-mode-elements);
+  border: 2px solid var(--elements);
 }
 .btn.light-mode:hover {
   background: var(--dark-mode-background);
@@ -67,10 +78,13 @@ img {
 }
 .flag-container {
   width: 100%;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
   gap: 40px;
-  box-shadow: 0 0 4px var(--elements);
+  -webkit-box-shadow: 0 0 4px var(--elements);
+          box-shadow: 0 0 4px var(--elements);
 }
 .search-wrap {
   padding: 1rem 0;
@@ -82,9 +96,15 @@ header {
 }
 .header-wrap {
   background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .toggle {
   cursor: pointer;
@@ -97,10 +117,19 @@ header {
   width: 100%;
   max-width: 1100px;
   margin: 1.5rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   gap: 20px;
 }
 .form-control {
@@ -109,7 +138,8 @@ header {
 .select-menu {
   width: 40%;
   min-width: 150px;
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   position: relative;
 }
 .form-control input,
@@ -127,9 +157,15 @@ header {
   font-family: inherit;
   letter-spacing: 1px;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .select-menu .options {
@@ -187,6 +223,18 @@ input[type="search"]:focus::-webkit-search-cancel-button {
   opacity: .3;
   pointer-events: all;
 }
+.form-control input::-webkit-input-placeholder {
+  color: var(--text);
+}
+.form-control input::-moz-placeholder {
+  color: var(--text);
+}
+.form-control input:-ms-input-placeholder {
+  color: var(--text);
+}
+.form-control input::-ms-input-placeholder {
+  color: var(--text);
+}
 .form-control input::placeholder {
   color: var(--text);
 }
@@ -201,8 +249,13 @@ input[type="search"]:focus::-webkit-search-cancel-button {
 .card {
   height: 100%;
   width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -236,22 +289,40 @@ input[type="search"]:focus::-webkit-search-cancel-button {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1;
   grid-template-columns: 1;
+  -ms-grid-rows: 1;
   grid-template-rows: 1;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(-100%);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: .3s ease-in;
+  -o-transition: .3s ease-in;
   transition: .3s ease-in;
 }
+
 .card:hover .btn-div {
-  transform: translateY(0);
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
 }
 .learn-btn {
   border: 2px solid var(--text);
   font-weight: bold;
   letter-spacing: .1rem;
   text-transform: uppercase;
+  grid-row: 1;
+  -ms-grid-row: 1;
+  grid-column: 1;;
+  -ms-grid-column: 1;
 }
 
 
@@ -299,8 +370,11 @@ input[type="search"]:focus::-webkit-search-cancel-button {
 }
 .det-country-details ul {
   list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 10px;
 }
 .det-country-details li {
@@ -308,7 +382,8 @@ input[type="search"]:focus::-webkit-search-cancel-button {
   background: var(--elements);
   padding: 5px 1.2rem;
   border-radius: 5px;
-  box-shadow: 1px 1px 1px 1px rgba(88, 102, 114, 0.5);
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(88, 102, 114, 0.5);
+          box-shadow: 1px 1px 1px 1px rgba(88, 102, 114, 0.5);
 }
 /* Base Style Adjustments */
 .btn-light {
@@ -319,7 +394,9 @@ input[type="search"]:focus::-webkit-search-cancel-button {
 @media (max-width: 449px) {
   .country-info,
   .flag-img {
-    flex: none;
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
     height: auto;
   }
   .card {
@@ -332,23 +409,34 @@ input[type="search"]:focus::-webkit-search-cancel-button {
 
 @media (min-width: 450px) {
   .flag-container {
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(2, 1fr);
   }
   .search-wrap {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .form-control {
-    flex: 0 1 40%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 40%;
+            flex: 0 1 40%;
   }
   .select-menu {
-    flex: 0 1 20%;
-    align-self: center;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 20%;
+            flex: 0 1 20%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
 }
 
 
 @media (min-width: 700px) {
   .flag-container {
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -363,28 +451,43 @@ input[type="search"]:focus::-webkit-search-cancel-button {
   .det-country {
     width: 100%;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     gap: 50px;
   }
   .det-flag {
-    flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
   }
   .det-country-details {
     padding: 3rem 2rem;
-    flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
     height: 60%;
+    display: -ms-grid;
     display: grid;
     gap: 20px;
+    -ms-grid-columns: 1fr 20px 1fr;
     grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: minmax(100px, 200px) 20px minmax(100px, 200px) 20px minmax(100px);
     grid-template-rows: minmax(100px, 200px) minmax(100px, 200px) minmax(100px);
   }
   .details-1 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
     grid-column: 1/2;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
     grid-row: 1/3;
   }
   .details-3 {
     grid-column: 1/-1;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
     grid-row: 3/4;
   }
 }
@@ -392,6 +495,7 @@ input[type="search"]:focus::-webkit-search-cancel-button {
 
 @media (min-width: 1000px) {
   .flag-container {
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(4, 1fr);
   }
   .header-wrap,

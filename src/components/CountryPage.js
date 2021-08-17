@@ -50,9 +50,9 @@ const CountryPage = () => {
                 </div>
                 <div className="details-3">
                   <h3>Border Countries: </h3>
-                  <span className="border-countries"><ul>{borders.map((border) => {
+                  <span className="border-countries"><ul>{borders.map((border, index) => {
                     return (
-                        <li>{border}</li>
+                        <li key={index+251}>{border}</li>
                     )
                   })}
                   </ul>

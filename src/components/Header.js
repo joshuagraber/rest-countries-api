@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 const Header = () => {
-  let isDarkMode = true;
+  const [ isDarkMode, setDarkMode ] = useState(true);
+
 
   const lightDark = () => {
     const buttons = document.querySelectorAll('.btn');
@@ -18,7 +19,7 @@ const Header = () => {
     }
     buttons.forEach(button => button.classList.toggle('light-mode'));
     inputs.forEach(input => input.classList.toggle('light-mode'));
-    isDarkMode = !isDarkMode;
+    setDarkMode(!isDarkMode);
   }
 
   
